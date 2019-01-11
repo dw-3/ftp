@@ -1,0 +1,33 @@
+import configparser
+#
+# config = configparser.ConfigParser()
+# config.read()
+# res = config.sections()
+# print(res)
+# options = config.options('section1')
+# print(options)
+# item_list = config.items('section1')
+# print(item_list)
+# val = config.get('section1', 'user')
+# print(val)
+# val1 = config.getint('section1', 'age')
+# print(val1)
+# val2 = config.getboolean('section1', 'is_admin')
+# print(val2)
+# val3 = config.getfloat('section1', 'salary')
+# print(val3)
+# config.remove_section('section2')
+# config.remove_option('section1','k1')
+# config.remove_option('section1','k2')
+# print(config.has_section('section1'))
+# print(config.has_option('section1','user1'))
+# config.add_section('egon')
+# config.set('egon','name','egon')
+# config.write(open('a.cfg','w'))
+def query_db():
+    '''查询本地数据库'''
+    config = configparser.ConfigParser()
+    config.read(r'C:\Users\lei.yi\PycharmProjects\FTP\user_db\user.ini')
+    return config
+res=query_db()
+print(res)
