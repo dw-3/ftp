@@ -1,0 +1,10 @@
+[yilei]
+name = yilei
+password = 123
+quota = 1024
+
+[zhaoyuyun]
+name = zhaoyuyun
+password = 123
+quota = 10240000
+
