@@ -3,6 +3,7 @@ import struct
 from modules import user
 import subprocess
 import os
+import configparser
 from conf import settings
 
 
@@ -151,9 +152,11 @@ class MyHandler(socketserver.BaseRequestHandler):
                 res = '%s 资源上传完成 ' % file_name
                 print('2')
                 remain_space = int(self.config.get(self.name, 'quota')) - unpack_total_size
-                self.config.remove_option(self.name, 'quota')
-                self.config.set(self.name, 'quota', str(remain_space))
-                self.config.write(open(self.user_path, mode='wt'))
+                user_info_config = configparser.ConfigParser()
+                user_info_config.read(settings.user_info_path, encoding='utf-8')
+                user_info_config.remove_option(self.name, 'quota')
+                user_info_config.set(self.name, 'quota', str(remain_space))
+                user_info_config.write(open(settings.user_info_path, mode='wt'))
                 print('1')
                 self.request.sendall(res.encode('utf-8'))
                 print('3')
